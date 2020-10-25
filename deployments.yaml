@@ -17,6 +17,5 @@ spec:
       - name: node-svc
         image: gcr.io/<YOUR GOOGLE PROJECT>/node-svc:latest 
 
-        #image: dmacademy/node-svc:latest #If you don't specify a registry hostname, Kubernetes assumes that you mean the Docker public registry.
-                                  #https://kubernetes.io/docs/concepts/containers/images/
+        
 ---
