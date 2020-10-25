@@ -2,7 +2,7 @@
 
 Written for SEIS664, IT Delivery, at the University of St. Thomas (St. Paul, MN). 
 
-A simple Node microservice showing use of node-fetch and express with async logic. Calls itself recursively. 
+A simple Node microservice showing use of node-fetch and express with async logic. Calls itself recursively, effectively implementing an Aggregator pattern (or anti-pattern, if you prefer). 
 
 Includes simplest possible Mocha/Chai test. Includes a variety of provisioning and configuration resources (shell, Terrform, Packer, Ansible, Docker, Kubernetes) and basic Github Actions pipeline for testing, building, pushing to gcr.io, and deploying to Kubernetes. 
 
