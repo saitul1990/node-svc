@@ -1,4 +1,4 @@
 #!/bin/bash
 # Example Docker build
 
-docker build -t gcr.io/<your Google ID>/node-svc .
+docker build -t gcr.io/$LOGNAME/node-svc .
