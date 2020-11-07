@@ -2,13 +2,17 @@
 // or can be replicated and will round-robin requests among peers.  
 
 'use strict';
-const arrNodes = [ "34.70.205.65" ] // you might need this for K8S
 
-// vary these constants according to how many VMs you have deployed
-//const arrNodes = [ "localhost" ] // for testing on GCS
-//const arrNodes = [ "node-svc-01" ]
-//const arrNodes = [ "node-svc-01", "node-svc-02" ]
-//const arrNodes = [ "node-svc-01", "node-svc-02" , "node-svc-03" ]
+// vary these constants according to where you are running (GCS, VMs, K8S) and how many VMs you have, if that's the lesson)
+// to do: this should be a command-line parameter that lets the app know how it is running
+//const arrNodes = [ "localhost" ]                                    // for testing on GCS
+//const arrNodes = [ "node-svc-01" ]                                  // for 1 VM
+const arrNodes = [ "node-svc-01", "node-svc-02" ]                   // for 2 VMs
+//const arrNodes = [ "node-svc-01", "node-svc-02" , "node-svc-03" ]   // for 3 VMs
+//const arrNodes = [ process.env.NODE_SVC_PUBLIC_SERVICE_HOST  ];       //  use this for K8S
+
+console.log("service host is " + arrNodes[0]);
+
 
 const express = require('express');
 const fetch = require('node-fetch');
@@ -22,19 +26,23 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// shuts down application
 app.get('/999', (req, res) => {
  (async () => {
+   console.warn("***SHUTDOWN SIGNAL***");
    res.write("Shutting down.");
+
    res.status(200).end();
    return process.exit(999);
   })();
 })
 
+// simplest get; recursion end point
 app.get('/0?', (req, res) => {     // matches either / or /0
   (async () => {
     // A simple change is to alter the returned data, 
     // e.g. change "ThisAction" to "Action"
-    res.write(dateIPStamp({ "ThisAction":"GET" }, req.ip));
+    res.write(dateIPStamp({ "Action":"GET" }, req.ip));
     res.status(200).end();
     console.log('Console: / Server returned success on get.');
   })();

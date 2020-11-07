@@ -1,5 +1,5 @@
 provider "google" {
   version = "~> 3.37.0"
-  project = "proven-sum-252123"
+  project = var.project_id
   region  = "us-central1-c"
 }

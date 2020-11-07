@@ -17,6 +17,6 @@ RUN npm install express
 # Bundle app source
 COPY . /app
 
-EXPOSE 3000
+EXPOSE 30100
 
 CMD [ "node", "server.js" ]
