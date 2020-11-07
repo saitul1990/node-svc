@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: node-svc
-        image: gcr.io/<YOUR GOOGLE PROJECT>/node-svc:latest
+        image: gcr.io/boreal-mode-289323/node-svc:latest
         
 ---

@@ -1,5 +1,5 @@
 // define provider configuration variables
-project_id = "YOUR GOOGLE PROJECT ID"         # project in which to create a cluster
+project_id = "boreal-mode-289323"         # project in which to create a cluster
 region = "us-central1"                       # region in which to create a cluster
 
 // define Kubernetes cluster variables
